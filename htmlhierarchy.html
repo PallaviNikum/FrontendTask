@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Document Hierarchy</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #263238;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #607d8b;
+            margin-bottom: 40px;
+        }
+
+        .tree {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .node {
+            display: inline-block;
+            min-width: 150px;
+            padding: 18px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .root {
+            background: #1565c0;
+        }
+
+        .parent {
+            background: #00897b;
+        }
+
+        .child {
+            background: #ef8c32;
+        }
+
+        .connector {
+            color: #78909c;
+            font-size: 28px;
+            margin: 8px;
+        }
+
+        .branches {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            flex-wrap: wrap;
+        }
+
+        .branch {
+            min-width: 220px;
+        }
+
+        .children {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .description {
+            font-size: 13px;
+            font-weight: normal;
+            margin-top: 6px;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #78909c;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .branches {
+                gap: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML Document Hierarchy</h1>
+    <p class="subtitle">
+        Visual Representation of HTML Elements and Their Relationships
+    </p>
+
+    <div class="tree">
+
+        <div class="node root">
+            HTML
+            <div class="description">Root Element</div>
+        </div>
+
+        <div class="connector">│</div>
+        <div class="connector">├───────────────┐</div>
+
+        <div class="branches">
+
+            <div class="branch">
+                <div class="node parent">
+                    HEAD
+                    <div class="description">Metadata Section</div>
+                </div>
+
+                <div class="connector">│</div>
+
+                <div class="children">
+                    <div class="node child">
+                        TITLE
+                        <div class="description">Document Title</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="branch">
+                <div class="node parent">
+                    BODY
+                    <div class="description">Content Section</div>
+                </div>
+
+                <div class="connector">│</div>
+
+                <div class="children">
+                    <div class="node child">H1 - Heading</div>
+                    <div class="node child">P - Paragraph</div>
+                    <div class="node child">DIV - Container</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        Created using HTML and CSS | Exercise 1
+    </footer>
+
+</body>
+</html>

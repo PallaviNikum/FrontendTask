@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Solo Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #ffffff;
+            background-color: #292d33;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .btn-yellow, .price {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-yellow {
+            display: inline-block;
+            background-color: #f1c50e;
+            color: #111111;
+            padding: 12px 34px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-yellow:hover {
+            background-color: #dfb407;
+            transform: translateY(-2px);
+        }
+
+
+        .hero {
+            min-height: 85vh;
+            background:
+                linear-gradient(to bottom, rgba(255,255,255,0.08) 0%, rgba(18,20,24,0.45) 55%, rgba(18,20,24,0.85) 100%),
+                url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px 65px;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 14px;
+        }
+
+        .hero-content p {
+            font-size: 0.92rem;
+            color: #f0f0f0;
+            margin-bottom: 26px;
+        }
+
+        .about-section {
+            position: relative;
+            padding: 95px 8%;
+            background:
+                linear-gradient(rgba(18, 20, 24, 0.78), rgba(18, 20, 24, 0.85)),
+                url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        }
+
+        .about-container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .about-container h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .about-container > p {
+            font-size: 0.96rem;
+            color: #e8e8e8;
+            margin-bottom: 16px;
+            max-width: 780px;
+        }
+
+        .yellow-highlight-box {
+            margin-top: 28px;
+            background-color: #f1c50e;
+            color: #111111;
+            padding: 22px 26px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.65;
+            max-width: 760px;
+        }
+
+        
+        .packages-section {
+            padding: 85px 8%;
+            background:
+                linear-gradient(rgba(25, 28, 32, 0.72), rgba(25, 28, 32, 0.82)),
+                url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        }
+
+        .packages-grid {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .package-card {
+            background: #ffffff;
+            color: #111111;
+            text-align: center;
+            padding-bottom: 32px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+        }
+
+        .package-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            display: block;
+        }
+
+        .package-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 24px 16px 12px;
+            color: #111111;
+        }
+
+        .package-card p {
+            font-size: 0.85rem;
+            color: #666666;
+            padding: 0 22px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .package-card .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 18px;
+        }
+
+        .offer-section {
+            padding: 90px 8%;
+            background:
+                linear-gradient(rgba(60, 65, 72, 0.78), rgba(60, 65, 72, 0.85)),
+                url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        }
+
+        .offer-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .offer-container h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 42px;
+            color: #ffffff;
+        }
+
+        .offer-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .check-circle {
+            width: 54px;
+            height: 54px;
+            min-width: 54px;
+            border-radius: 50%;
+            background-color: #f1c50e;
+            color: #111111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .offer-item h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .offer-item p {
+            font-size: 0.88rem;
+            color: #e2e2e2;
+        }
+
+      
+        .stats-section {
+            padding: 75px 8%;
+            background:
+                linear-gradient(rgba(30, 35, 28, 0.72), rgba(30, 35, 28, 0.78)),
+                url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        }
+
+        .stats-grid {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stat-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-icon {
+            font-size: 2.4rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f1c50e;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+       
+        .testimonial-section {
+            position: relative;
+            padding: 95px 8%;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
+                url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            color: #111111;
+        }
+
+        .testimonial-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .arrow-btn {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 50%;
+            background: #f1c50e;
+            color: #111111;
+            border: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-content {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            flex: 1;
+        }
+
+        .avatar-circle {
+            width: 210px;
+            height: 210px;
+            min-width: 210px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .testimonial-text h3 {
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #111111;
+        }
+
+        .testimonial-text p {
+            font-size: 0.95rem;
+            color: #222222;
+            margin-bottom: 22px;
+            max-width: 450px;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 32px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(17, 17, 17, 0.35);
+            border: none;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #111111;
+        }
+
+    
+        .contact-section {
+            padding: 95px 20px;
+            background:
+                linear-gradient(rgba(25, 22, 18, 0.65), rgba(25, 22, 18, 0.72)),
+                url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .contact-section p {
+            font-size: 0.95rem;
+            color: #f0f0f0;
+            margin-bottom: 28px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .contact-form input[type="email"] {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            border: none;
+            background: #ffffff;
+            color: #111111;
+            outline: none;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #cccccc;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.82rem;
+        }
+
+        footer p {
+            margin-bottom: 16px;
+        }
+
+        footer a {
+            color: #a8c7fa;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonial-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .testimonial-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .avatar-circle {
+                width: 150px;
+                height: 150px;
+                min-width: 150px;
+            }
+            .about-container h2,
+            .offer-container h2,
+            .contact-section h2 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero" id="top">
+        <div class="hero-content">
+            <h1>we provide best guidance</h1>
+            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+            <a href="#about" class="btn-yellow">READ MORE</a>
+        </div>
+    </section>
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <h2>What do You Know About Us</h2>
+            <p>Journey is a tour agency, specializing in organizing tours to all destinations. We are happy to make your holidays unforgettable and amazing. Our agents are experts in finding you the most comfortable and interesting place for you to have breathtaking holidays.</p>
+            <p>Select the country you'd like to visit and provide our agents with estimated time – they'll find and offer the most suitable tours and hotels.</p>
+
+            <div class="yellow-highlight-box">
+                During our work we organized countless journeys for our clients. We started as a small tour bureau, and soon we expanded our offers list. Today we have valuable experience travelling and we can advise the most stunning resorts, cities and countries to visit!
+            </div>
+        </div>
+    </section>
+
+    <section class="packages-section" id="packages">
+        <div class="packages-grid">
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=800&q=80" alt="Mountains Travel">
+                <h3>mountains travel</h3>
+                <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="price">$ 600</div>
+                <a href="#contact" class="btn-yellow">BOOK NOW</a>
+            </div>
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="Forest Travel">
+                <h3>forest travel</h3>
+                <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="price">$ 800</div>
+                <a href="#contact" class="btn-yellow">BOOK NOW</a>
+            </div>
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Ocean Travel">
+                <h3>ocean travel</h3>
+                <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <div class="price">$ 700</div>
+                <a href="#contact" class="btn-yellow">BOOK NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="offer-section" id="offer">
+        <div class="offer-container">
+            <h2>What Can We Offer for You</h2>
+            <div class="offer-list">
+                <div class="offer-item">
+                    <div class="check-circle">&#10003;</div>
+                    <div>
+                        <h3>Various Destinations</h3>
+                        <p>Sample text. Click to select the text box. Click again</p>
+                    </div>
+                </div>
+
+                <div class="offer-item">
+                    <div class="check-circle">&#10003;</div>
+                    <div>
+                        <h3>Everything is Included</h3>
+                        <p>Sample text. Click to select the text the text</p>
+                    </div>
+                </div>
+
+                <div class="offer-item">
+                    <div class="check-circle">&#10003;</div>
+                    <div>
+                        <h3>Affordable Prices</h3>
+                        <p>Sample text. Click to select the text box. Click again or double click</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="stats-section" id="stats">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-icon">&#128205;</div>
+                <div class="stat-number" data-target="44">0</div>
+                <div class="stat-label">visited countries</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-icon">&#127758;</div>
+                <div class="stat-number" data-target="120">0</div>
+                <div class="stat-label">travel tours</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-icon">&#128247;</div>
+                <div class="stat-number" data-target="102">0</div>
+                <div class="stat-label">happy clients</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-icon">&#129517;</div>
+                <div class="stat-number" data-target="21">0</div>
+                <div class="stat-label">tracking tours</div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial-section" id="testimonials">
+        <div class="testimonial-wrapper">
+            <button class="arrow-btn" onclick="changeSlide(-1)" aria-label="Previous">&#8249;</button>
+
+            <div class="testimonial-content">
+                <img id="testimonialImg" class="avatar-circle" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Linda Larson">
+                <div class="testimonial-text">
+                    <h3 id="testimonialName">Linda Larson</h3>
+                    <p id="testimonialQuote">There are two types of people who will tell you that you cannot make a difference in this world: those who are afraid to try and those who are afraid you will succeed.</p>
+                    <a href="#contact" class="btn-yellow">READ MORE</a>
+                </div>
+            </div>
+
+            <button class="arrow-btn" onclick="changeSlide(1)" aria-label="Next">&#8250;</button>
+        </div>
+
+        <div class="slider-dots">
+            <button class="dot active" onclick="setSlide(0)" aria-label="Slide 1"></button>
+            <button class="dot" onclick="setSlide(1)" aria-label="Slide 2"></button>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>We channel creativity, colors, copy and code to help our clients with better branding.</p>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been submitted.'); this.reset();">
+            <input type="email" placeholder="Enter a valid email address" required>
+            <button type="submit" class="btn-yellow">SUBMIT</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+        <div><a href="#top">Website Templates</a> created with <a href="#top">Website Builder Software</a>.</div>
+    </footer>
+
+    <script>
+     
+        const counters = document.querySelectorAll('.stat-number');
+        let countersStarted = false;
+
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 1200;
+                const stepTime = 20;
+                const totalSteps = duration / stepTime;
+                const increment = target / totalSteps;
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, stepTime);
+            });
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersStarted) {
+                    countersStarted = true;
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        statsObserver.observe(document.getElementById('stats'));
+
+        const testimonials = [
+            {
+                name: "Linda Larson",
+                quote: "There are two types of people who will tell you that you cannot make a difference in this world: those who are afraid to try and those who are afraid you will succeed.",
+                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                name: "Mark Stevens",
+                quote: "The solo mountain and forest routes were thoughtfully planned. Every stop felt safe, scenic, and deeply inspiring from start to finish.",
+                img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function renderSlide() {
+            const item = testimonials[currentSlide];
+            document.getElementById('testimonialName').textContent = item.name;
+            document.getElementById('testimonialQuote').textContent = item.quote;
+            document.getElementById('testimonialImg').src = item.img;
+
+            document.querySelectorAll('.dot').forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlide);
+            });
+        }
+
+        function changeSlide(dir) {
+            currentSlide = (currentSlide + dir + testimonials.length) % testimonials.length;
+            renderSlide();
+        }
+
+        function setSlide(idx) {
+            currentSlide = idx;
+            renderSlide();
+        }
+    </script>
+</body>
+</html>

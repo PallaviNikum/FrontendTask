@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting System</title>
+</head>
+
+<body>
+
+    <h1 align="center">Online Voting System</h1>
+    <h2 align="center">Cast Your Vote</h2>
+
+    <hr>
+
+    <form>
+
+        <fieldset>
+
+            <legend>Voter Information</legend>
+
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter your name" required>
+
+            <br><br>
+
+            <label>Age:</label>
+            <input type="number" min="18" placeholder="Enter your age" required>
+
+            <br><br>
+
+            <label>Voter ID:</label>
+            <input type="text" placeholder="Enter Voter ID" required>
+
+            <br><br>
+
+            <label>Email:</label>
+            <input type="email" placeholder="Enter your email">
+
+            <br><br>
+
+            <label>Mobile Number:</label>
+            <input type="tel" maxlength="10"
+                   placeholder="Enter mobile number" required>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+
+            <legend>Select Your Candidate</legend>
+
+            <p>Choose only one candidate:</p>
+
+            <input type="radio" name="candidate" value="Candidate A" required>
+            Candidate A
+
+            <br><br>
+
+            <input type="radio" name="candidate" value="Candidate B">
+            Candidate B
+
+            <br><br>
+
+            <input type="radio" name="candidate" value="Candidate C">
+            Candidate C
+
+            <br><br>
+
+            <input type="radio" name="candidate" value="Candidate D">
+            Candidate D
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+
+            <legend>Voting Declaration</legend>
+
+            <input type="checkbox" required>
+            I confirm that the information provided is correct.
+
+            <br><br>
+
+            <input type="checkbox" required>
+            I confirm that I am 18 years or older.
+
+        </fieldset>
+
+        <br>
+
+        <input type="submit" value="Submit Vote">
+
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <hr>
+
+    <h3 align="center">Thank You for Participating!</h3>
+
+</body>
+</html>

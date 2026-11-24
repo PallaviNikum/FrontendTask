@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Account Management</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 380px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 11px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4f46e5;
+        }
+
+        .account-info {
+            background: #eef2ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        #message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Bank Account</h2>
+
+        <div class="account-info">
+
+            <p><b>Account Holder:</b> Pallavi</p>
+
+            <p><b>Account Number:</b> 123456</p>
+
+            <p><b>Balance:</b> ₹<span id="balance">1000</span></p>
+
+        </div>
+
+        <input type="number" id="amount"
+        placeholder="Enter amount">
+
+        <button id="depositBtn">Deposit Money</button>
+
+        <button id="withdrawBtn">Withdraw Money</button>
+
+        <button id="checkBtn">Check Balance</button>
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <script>
+
+        class BankAccount {
+            #balance;
+
+            constructor(holderName, accountNumber, balance) {
+
+                this.holderName = holderName;
+
+                this.accountNumber = accountNumber;
+
+                this.#balance = balance;
+
+            }
+
+            deposit(amount) {
+
+                if (amount <= 0) {
+
+                    return "Enter a valid amount";
+
+                }
+
+                this.#balance += amount;
+
+                return "Money deposited successfully!";
+
+            }
+
+            withdraw(amount) {
+
+                if (amount <= 0) {
+
+                    return "Enter a valid amount";
+
+                }
+
+                if (amount > this.#balance) {
+
+                    return "Insufficient Balance!";
+
+                }
+
+                this.#balance -= amount;
+
+                return "Money withdrawn successfully!";
+
+            }
+
+            checkBalance() {
+
+                return this.#balance;
+
+            }
+
+        }
+
+        let account = new BankAccount("Pallavi", "123456", 1000);
+
+        let amountInput = document.getElementById("amount");
+
+        let balanceDisplay = document.getElementById("balance");
+
+        let message = document.getElementById("message");
+
+        function updateBalance() {
+
+            balanceDisplay.innerText = account.checkBalance();
+
+        }
+
+        document.getElementById("depositBtn").addEventListener("click", function() {
+
+            let amount = Number(amountInput.value);
+
+            let result = account.deposit(amount);
+
+            message.innerText = result;
+
+            updateBalance();
+
+            amountInput.value = "";
+
+        });
+
+        document.getElementById("withdrawBtn").addEventListener("click", function() {
+
+            let amount = Number(amountInput.value);
+
+            let result = account.withdraw(amount);
+
+            message.innerText = result;
+
+            updateBalance();
+
+            amountInput.value = "";
+
+        });
+
+        document.getElementById("checkBtn").addEventListener("click", function() {
+
+            message.innerText = "Your Current Balance is ₹" + account.checkBalance();
+
+        });
+
+    </script>
+
+</body>
+</html>

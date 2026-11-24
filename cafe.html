@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe Order Booking</title>
+</head>
+
+<body>
+
+    <h1 align="center">Cafe Delight ☕</h1>
+    <h2 align="center">Cafe Order Booking Form</h2>
+
+    <hr>
+
+    <form>
+
+        <fieldset>
+            <legend>Customer Details</legend>
+
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter your name" required>
+            <br><br>
+
+            <label>Mobile Number:</label>
+            <input type="tel" placeholder="Enter mobile number"
+                   maxlength="10" required>
+            <br><br>
+
+            <label>Email:</label>
+            <input type="email" placeholder="Enter email">
+            <br><br>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Table Booking</legend>
+
+            <label>Select Table Number:</label>
+
+            <select required>
+                <option value="">Select Table</option>
+                <option>Table 1</option>
+                <option>Table 2</option>
+                <option>Table 3</option>
+                <option>Table 4</option>
+                <option>Table 5</option>
+            </select>
+
+            <br><br>
+
+            <label>Booking Date:</label>
+            <input type="date" required>
+
+            <br><br>
+
+            <label>Booking Time:</label>
+            <input type="time" required>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Food Order Details</legend>
+
+            <label>Select Food:</label>
+
+            <select required>
+                <option value="">Select Food</option>
+                <option>Pizza</option>
+                <option>Burger</option>
+                <option>Pasta</option>
+                <option>Sandwich</option>
+                <option>French Fries</option>
+                <option>Cold Coffee</option>
+            </select>
+
+            <br><br>
+
+            <label>Quantity:</label>
+            <input type="number" min="1" max="20" required>
+
+            <br><br>
+
+            <label>Food Type:</label>
+            <input type="radio" name="food"> Veg
+            <input type="radio" name="food"> Non-Veg
+
+            <br><br>
+
+            <label>Extra Requirements:</label>
+            <br>
+            <input type="checkbox"> Extra Cheese
+            <input type="checkbox"> Extra Spicy
+            <input type="checkbox"> Less Salt
+
+            <br><br>
+
+            <label>Special Instructions:</label>
+            <br>
+            <textarea rows="4" cols="40"
+            placeholder="Enter your requirements"></textarea>
+
+        </fieldset>
+
+        <br>
+
+        <input type="checkbox" required>
+        I agree to the booking terms.
+
+        <br><br>
+
+        <input type="submit" value="Book Your Order">
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <hr>
+
+    <h3 align="center">Thank You! Visit Again ☕</h3>
+
+</body>
+</html>

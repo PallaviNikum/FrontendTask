@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information Management</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .student {
+            background: #eef2ff;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        .student h3 {
+            color: #4f46e5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Student Information</h2>
+
+        <div id="studentDetails"></div>
+
+    </div>
+
+
+    <script>
+
+        function Student(name, age, grade, subjects) {
+
+            this.name = name;
+            this.age = age;
+            this.grade = grade;
+            this.subjects = subjects;
+
+            this.printInfo = function() {
+
+                return `
+                    <div class="student">
+
+                        <h3>${this.name}</h3>
+
+                        <p><b>Age:</b> ${this.age}</p>
+
+                        <p><b>Grade:</b> ${this.grade}</p>
+
+                        <p><b>Subjects:</b> ${this.subjects.join(", ")}</p>
+
+                    </div>
+                `;
+            };
+        }
+
+        let student1 = new Student(
+            "Pallavi",
+            20,
+            "A",
+            ["Java", "DSA", "OOP"]
+        );
+
+        let student2 = new Student(
+            "Sakshi",
+            21,
+            "B",
+            ["JavaScript", "HTML", "CSS"]
+        );
+
+        let students = [student1, student2];
+
+
+        let output = document.getElementById("studentDetails");
+
+        students.forEach(function(student) {
+
+            output.innerHTML += student.printInfo();
+
+        });
+
+    </script>
+
+</body>
+</html>
